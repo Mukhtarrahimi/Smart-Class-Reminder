@@ -18,7 +18,7 @@ class SmartClassReminderApp:
         self.create_widgets()
         self.start_reminder_thread()
 
-         # GUI Widgets
+    # GUI Widgets
     def create_widgets(self):
         # Frame for buttons
         frame = tk.Frame(self.root)
@@ -37,7 +37,7 @@ class SmartClassReminderApp:
 
         self.show_classes()
 
-     # Add a class
+    # Add a class
     def add_class(self):
         title = simpledialog.askstring("Class Title", "Enter class title:")
         if not title: return
@@ -57,23 +57,13 @@ class SmartClassReminderApp:
         self.save_classes()
         self.show_classes()
         messagebox.showinfo("Success", f"Class '{title}' added!")
-    # Display all classes
-     # Show classes in treeview
+
+    # Show classes in treeview
     def show_classes(self):
         for row in self.tree.get_children():
             self.tree.delete(row)
         for cls in self.classes:
             self.tree.insert("", "end", values=(cls['day'], cls['hour'], cls['link']), text=cls['title'])
-    # Search for a class by title or day
-    def search_class(self):
-        keyword = input("Enter keyword to search: ")
-        found = [cls for cls in self.classes if keyword.lower() in cls['title'].lower() or keyword.lower() in cls['day'].lower()]
-        if not found:
-            print("No matching classes found.")
-            return
-        print("\nFound Classes:")
-        for cls in found:
-            print(f"{cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
 
     # Remove selected class
     def remove_class(self):
@@ -86,7 +76,8 @@ class SmartClassReminderApp:
         self.save_classes()
         self.show_classes()
         messagebox.showinfo("Removed", f"Class '{removed_class['title']}' removed!")
-  # Save classes to file
+
+    # Save classes to file
     def save_classes(self):
         with open(FILE_NAME, "w", encoding="utf-8") as f:
             json.dump(self.classes, f, ensure_ascii=False, indent=4)
@@ -97,7 +88,7 @@ class SmartClassReminderApp:
             with open(FILE_NAME, "r", encoding="utf-8") as f:
                 self.classes = json.load(f)
 
-   # Reminder thread
+    # Reminder thread
     def start_reminder_thread(self):
         def reminder_loop():
             while True:
@@ -111,7 +102,6 @@ class SmartClassReminderApp:
 
         thread = threading.Thread(target=reminder_loop, daemon=True)
         thread.start()
-loop stopped.")
 
 # Run the app
 if __name__ == "__main__":
