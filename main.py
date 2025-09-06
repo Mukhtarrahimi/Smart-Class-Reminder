@@ -97,20 +97,21 @@ class SmartClassReminderApp:
             with open(FILE_NAME, "r", encoding="utf-8") as f:
                 self.classes = json.load(f)
 
-    # Reminder loop to notify classes on time
-    def reminder_loop(self):
-        print("Reminder loop is running. Press Ctrl+C to stop.")
-        try:
+   # Reminder thread
+    def start_reminder_thread(self):
+        def reminder_loop():
             while True:
                 now = datetime.datetime.now()
                 current_day = now.strftime("%A")
                 current_time = now.strftime("%H:%M")
                 for cls in self.classes:
                     if cls['day'] == current_day and cls['hour'] == current_time:
-                        print(f"\nReminder: Class '{cls['title']}' is starting now! Link: {cls['link']}")
-                time.sleep(60)  # Check every minute
-        except KeyboardInterrupt:
-            print("\nReminder loop stopped.")
+                        messagebox.showinfo("Class Reminder", f"Class '{cls['title']}' is starting now!\nLink: {cls['link']}")
+                time.sleep(60)  # check every minute
+
+        thread = threading.Thread(target=reminder_loop, daemon=True)
+        thread.start()
+loop stopped.")
 
 def main():
     reminder = SmartClassReminder()
