@@ -113,33 +113,8 @@ class SmartClassReminderApp:
         thread.start()
 loop stopped.")
 
-def main():
-    reminder = SmartClassReminder()
-    while True:
-        print("\n--- Smart Class Reminder Menu ---")
-        print("1. Add a Class")
-        print("2. Show All Classes")
-        print("3. Search for a Class")
-        print("4. Remove a Class")
-        print("5. Start Reminder")
-        print("6. Exit")
-        choice = input("Enter your choice: ")
-
-        if choice == "1":
-            reminder.add_class()
-        elif choice == "2":
-            reminder.show_classes()
-        elif choice == "3":
-            reminder.search_class()
-        elif choice == "4":
-            reminder.remove_class()
-        elif choice == "5":
-            reminder.reminder_loop()
-        elif choice == "6":
-            print("Exiting the program...")
-            break
-        else:
-            print("Invalid choice! Please try again.")
-
+# Run the app
 if __name__ == "__main__":
-    main()
+    root = tk.Tk()
+    app = SmartClassReminderApp(root)
+    root.mainloop()
