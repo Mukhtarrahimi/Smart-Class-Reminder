@@ -45,3 +45,9 @@ class SmartClassReminder:
         print("\n🔎 Found Classes:")
         for cls in found:
             print(f"{cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
+
+    # Remove a class by index
+    def remove_class(self):
+        self.show_classes()
+        if not self.classes:
+            return
