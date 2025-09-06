@@ -66,3 +66,9 @@ class SmartClassReminder:
     def save_classes(self):
         with open(FILE_NAME, "w", encoding="utf-8") as f:
             json.dump(self.classes, f, ensure_ascii=False, indent=4)
+
+    # Load classes from file
+    def load_classes(self):
+        if os.path.exists(FILE_NAME):
+            with open(FILE_NAME, "r", encoding="utf-8") as f:
+                self.classes = json.load(f)
