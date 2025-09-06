@@ -61,3 +61,8 @@ class SmartClassReminder:
                 print("Invalid number.")
         except ValueError:
             print("Please enter a valid number.")
+
+    # Save classes to file
+    def save_classes(self):
+        with open(FILE_NAME, "w", encoding="utf-8") as f:
+            json.dump(self.classes, f, ensure_ascii=False, indent=4)
