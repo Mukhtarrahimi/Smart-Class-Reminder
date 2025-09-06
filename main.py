@@ -42,3 +42,6 @@ class SmartClassReminder:
         if not found:
             print("No matching classes found.")
             return
+        print("\n🔎 Found Classes:")
+        for cls in found:
+            print(f"{cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
