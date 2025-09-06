@@ -51,3 +51,13 @@ class SmartClassReminder:
         self.show_classes()
         if not self.classes:
             return
+        try:
+            index = int(input("Enter the number of the class to remove: "))
+            if 1 <= index <= len(self.classes):
+                removed = self.classes.pop(index-1)
+                self.save_classes()
+                print(f"❌ Class '{removed['title']}' has been removed.")
+            else:
+                print("Invalid number.")
+        except ValueError:
+            print("Please enter a valid number.")
