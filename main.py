@@ -25,3 +25,7 @@ class SmartClassReminder:
             })
             self.save_classes()
             print(f"✅ Class '{title}' has been successfully added!")
+        
+        # Display all classes
+    def show_classes(self):
+        pass
