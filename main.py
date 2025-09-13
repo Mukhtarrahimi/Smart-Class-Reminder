@@ -4,3 +4,9 @@ import datetime
 import time
 
 FILE_NAME = "classes.json"
+
+
+class SmartClassReminder:
+    def __init__(self):
+        self.classes = []
+        self.load_classes()
