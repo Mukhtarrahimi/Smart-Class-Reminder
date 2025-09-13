@@ -13,4 +13,7 @@ class SmartClassReminder:
 
          # Add a new class/session
         def add_class(self):
-            pass
+            title = input("Class Title: ")
+            day = input("Day (e.g., Monday): ")
+            hour = input("Start Time (24h format, e.g., 14:30): ")
+            link = input("Online Session Link: ")
