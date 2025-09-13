@@ -10,3 +10,7 @@ class SmartClassReminder:
     def __init__(self):
         self.classes = []
         self.load_classes()
+
+         # Add a new class/session
+        def add_class(self):
+            pass
