@@ -17,3 +17,11 @@ class SmartClassReminder:
             day = input("Day (e.g., Monday): ")
             hour = input("Start Time (24h format, e.g., 14:30): ")
             link = input("Online Session Link: ")
+            self.classes.append({
+                "title": title,
+                "day": day.capitalize(),
+                "hour": hour,
+                "link": link
+            })
+            self.save_classes()
+            print(f"✅ Class '{title}' has been successfully added!")
