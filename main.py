@@ -28,4 +28,9 @@ class SmartClassReminder:
         
         # Display all classes
     def show_classes(self):
-        pass
+         if not self.classes:
+            print("No classes scheduled yet.")
+            return
+            print("\n📚 Scheduled Classes:")
+            for i, cls in enumerate(self.classes, start=1):
+                print(f"{i}. {cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
