@@ -72,3 +72,8 @@ class SmartClassReminder:
         if os.path.exists(FILE_NAME):
             with open(FILE_NAME, "r", encoding="utf-8") as f:
                 self.classes = json.load(f)
+
+    
+    # Reminder loop to notify classes on time
+    def reminder_loop(self):
+        pass
