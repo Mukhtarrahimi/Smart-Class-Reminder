@@ -76,4 +76,7 @@ class SmartClassReminder:
     
     # Reminder loop to notify classes on time
     def reminder_loop(self):
-        pass
+        print("⏰ Reminder loop is running. Press Ctrl+C to stop.")
+        try:
+            while True:
+                pass
