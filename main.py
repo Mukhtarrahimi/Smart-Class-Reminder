@@ -100,3 +100,20 @@ def main():
         print("5. Start Reminder")
         print("6. Exit")
         choice = input("Enter your choice: ")
+
+        
+        if choice == "1":
+            reminder.add_class()
+        elif choice == "2":
+            reminder.show_classes()
+        elif choice == "3":
+            reminder.search_class()
+        elif choice == "4":
+            reminder.remove_class()
+        elif choice == "5":
+            reminder.reminder_loop()
+        elif choice == "6":
+            print("Exiting the program...")
+            break
+        else:
+            print("Invalid choice! Please try again.")
