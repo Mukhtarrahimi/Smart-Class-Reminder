@@ -88,3 +88,15 @@ class SmartClassReminder:
                 time.sleep(60)  # Check every minute
         except KeyboardInterrupt:
             print("\n⏹ Reminder loop stopped.")
+
+def main():
+    reminder = SmartClassReminder()
+    while True:
+        print("\n--- Smart Class Reminder Menu ---")
+        print("1. Add a Class")
+        print("2. Show All Classes")
+        print("3. Search for a Class")
+        print("4. Remove a Class")
+        print("5. Start Reminder")
+        print("6. Exit")
+        choice = input("Enter your choice: ")
