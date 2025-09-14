@@ -79,4 +79,10 @@ class SmartClassReminder:
         print("⏰ Reminder loop is running. Press Ctrl+C to stop.")
         try:
             while True:
-                pass
+                now = datetime.datetime.now()
+                current_day = now.strftime("%A")
+                current_time = now.strftime("%H:%M")
+                for cls in self.classes:
+                    if cls['day'] == current_day and cls['hour'] == current_time:
+                        print(f"\n🚨 Reminder: Class '{cls['title']}' is starting now! Link: {cls['link']}")
+                time.sleep(60)  # Check every minute
