@@ -24,14 +24,14 @@ class SmartClassReminder:
                 "link": link
             })
             self.save_classes()
-            print(f"✅ Class '{title}' has been successfully added!")
+            print(f" Class '{title}' has been successfully added!")
         
         # Display all classes
     def show_classes(self):
          if not self.classes:
             print("No classes scheduled yet.")
             return
-            print("\n📚 Scheduled Classes:")
+            print("\nScheduled Classes:")
             for i, cls in enumerate(self.classes, start=1):
                 print(f"{i}. {cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
 
@@ -42,7 +42,7 @@ class SmartClassReminder:
         if not found:
             print("No matching classes found.")
             return
-        print("\n🔎 Found Classes:")
+        print("\nFound Classes:")
         for cls in found:
             print(f"{cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
 
@@ -56,7 +56,7 @@ class SmartClassReminder:
             if 1 <= index <= len(self.classes):
                 removed = self.classes.pop(index-1)
                 self.save_classes()
-                print(f"❌ Class '{removed['title']}' has been removed.")
+                print(f" Class '{removed['title']}' has been removed.")
             else:
                 print("Invalid number.")
         except ValueError:
