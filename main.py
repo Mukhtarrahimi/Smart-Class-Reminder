@@ -34,3 +34,7 @@ class SmartClassReminder:
             print("\n📚 Scheduled Classes:")
             for i, cls in enumerate(self.classes, start=1):
                 print(f"{i}. {cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
+
+    # Search for a class by title or day
+    def search_class(self):
+        pass
