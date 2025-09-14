@@ -86,3 +86,5 @@ class SmartClassReminder:
                     if cls['day'] == current_day and cls['hour'] == current_time:
                         print(f"\n🚨 Reminder: Class '{cls['title']}' is starting now! Link: {cls['link']}")
                 time.sleep(60)  # Check every minute
+        except KeyboardInterrupt:
+            print("\n⏹ Reminder loop stopped.")
