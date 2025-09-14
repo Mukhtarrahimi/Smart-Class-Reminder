@@ -37,4 +37,8 @@ class SmartClassReminder:
 
     # Search for a class by title or day
     def search_class(self):
-        pass
+        keyword = input("Enter keyword to search: ")
+        found = [cls for cls in self.classes if keyword.lower() in cls['title'].lower() or keyword.lower() in cls['day'].lower()]
+        if not found:
+            print("No matching classes found.")
+            return
