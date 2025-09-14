@@ -76,7 +76,7 @@ class SmartClassReminder:
     
     # Reminder loop to notify classes on time
     def reminder_loop(self):
-        print("⏰ Reminder loop is running. Press Ctrl+C to stop.")
+        print("Reminder loop is running. Press Ctrl+C to stop.")
         try:
             while True:
                 now = datetime.datetime.now()
@@ -84,10 +84,10 @@ class SmartClassReminder:
                 current_time = now.strftime("%H:%M")
                 for cls in self.classes:
                     if cls['day'] == current_day and cls['hour'] == current_time:
-                        print(f"\n🚨 Reminder: Class '{cls['title']}' is starting now! Link: {cls['link']}")
+                        print(f"\nReminder: Class '{cls['title']}' is starting now! Link: {cls['link']}")
                 time.sleep(60)  # Check every minute
         except KeyboardInterrupt:
-            print("\n⏹ Reminder loop stopped.")
+            print("\nReminder loop stopped.")
 
 def main():
     reminder = SmartClassReminder()
