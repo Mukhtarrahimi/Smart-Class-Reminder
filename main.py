@@ -8,10 +8,15 @@ import time
 
 FILE_NAME = "classes.json"
 
-class SmartClassReminder:
-    def __init__(self):
+class SmartClassReminderApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Smart Class Reminder")
+        self.root.geometry("600x400")
         self.classes = []
         self.load_classes()
+        self.create_widgets()
+        self.start_reminder_thread()
 
     # Add a new class/session
     def add_class(self):
