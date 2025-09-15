@@ -86,7 +86,7 @@ class SmartClassReminderApp:
         self.save_classes()
         self.show_classes()
         messagebox.showinfo("Removed", f"Class '{removed_class['title']}' removed!")
-    # Save classes to file
+  # Save classes to file
     def save_classes(self):
         with open(FILE_NAME, "w", encoding="utf-8") as f:
             json.dump(self.classes, f, ensure_ascii=False, indent=4)
