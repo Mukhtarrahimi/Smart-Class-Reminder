@@ -18,6 +18,25 @@ class SmartClassReminderApp:
         self.create_widgets()
         self.start_reminder_thread()
 
+         # GUI Widgets
+    def create_widgets(self):
+        # Frame for buttons
+        frame = tk.Frame(self.root)
+        frame.pack(pady=10)
+
+        tk.Button(frame, text="Add Class", command=self.add_class).grid(row=0, column=0, padx=5)
+        tk.Button(frame, text="Remove Class", command=self.remove_class).grid(row=0, column=1, padx=5)
+        tk.Button(frame, text="Refresh List", command=self.show_classes).grid(row=0, column=2, padx=5)
+
+        # Treeview for class list
+        self.tree = ttk.Treeview(self.root, columns=("Day", "Time", "Link"), show="headings")
+        self.tree.heading("Day", text="Day")
+        self.tree.heading("Time", text="Time")
+        self.tree.heading("Link", text="Link")
+        self.tree.pack(expand=True, fill="both", padx=10, pady=10)
+
+        self.show_classes()
+
     # Add a new class/session
     def add_class(self):
         title = input("Class Title: ")
