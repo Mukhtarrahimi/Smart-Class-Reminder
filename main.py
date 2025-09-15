@@ -58,14 +58,12 @@ class SmartClassReminderApp:
         self.show_classes()
         messagebox.showinfo("Success", f"Class '{title}' added!")
     # Display all classes
+     # Show classes in treeview
     def show_classes(self):
-        if not self.classes:
-            print("No classes scheduled yet.")
-            return
-        print("\nScheduled Classes:")
-        for i, cls in enumerate(self.classes, start=1):
-            print(f"{i}. {cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
-
+        for row in self.tree.get_children():
+            self.tree.delete(row)
+        for cls in self.classes:
+            self.tree.insert("", "end", values=(cls['day'], cls['hour'], cls['link']), text=cls['title'])
     # Search for a class by title or day
     def search_class(self):
         keyword = input("Enter keyword to search: ")
