@@ -1,6 +1,9 @@
+import tkinter as tk
+from tkinter import messagebox, simpledialog, ttk
 import json
 import os
 import datetime
+import threading
 import time
 
 FILE_NAME = "classes.json"
