@@ -5,35 +5,34 @@ import time
 
 FILE_NAME = "classes.json"
 
-
 class SmartClassReminder:
     def __init__(self):
         self.classes = []
         self.load_classes()
 
-         # Add a new class/session
-        def add_class(self):
-            title = input("Class Title: ")
-            day = input("Day (e.g., Monday): ")
-            hour = input("Start Time (24h format, e.g., 14:30): ")
-            link = input("Online Session Link: ")
-            self.classes.append({
-                "title": title,
-                "day": day.capitalize(),
-                "hour": hour,
-                "link": link
-            })
-            self.save_classes()
-            print(f" Class '{title}' has been successfully added!")
-        
-        # Display all classes
+    # Add a new class/session
+    def add_class(self):
+        title = input("Class Title: ")
+        day = input("Day (e.g., Monday): ")
+        hour = input("Start Time (24h format, e.g., 14:30): ")
+        link = input("Online Session Link: ")
+        self.classes.append({
+            "title": title,
+            "day": day.capitalize(),
+            "hour": hour,
+            "link": link
+        })
+        self.save_classes()
+        print(f"✅ Class '{title}' has been successfully added!")
+
+    # Display all classes
     def show_classes(self):
-         if not self.classes:
+        if not self.classes:
             print("No classes scheduled yet.")
             return
-            print("\nScheduled Classes:")
-            for i, cls in enumerate(self.classes, start=1):
-                print(f"{i}. {cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
+        print("\n📚 Scheduled Classes:")
+        for i, cls in enumerate(self.classes, start=1):
+            print(f"{i}. {cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
 
     # Search for a class by title or day
     def search_class(self):
@@ -42,7 +41,7 @@ class SmartClassReminder:
         if not found:
             print("No matching classes found.")
             return
-        print("\nFound Classes:")
+        print("\n🔎 Found Classes:")
         for cls in found:
             print(f"{cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
 
@@ -56,7 +55,7 @@ class SmartClassReminder:
             if 1 <= index <= len(self.classes):
                 removed = self.classes.pop(index-1)
                 self.save_classes()
-                print(f" Class '{removed['title']}' has been removed.")
+                print(f"❌ Class '{removed['title']}' has been removed.")
             else:
                 print("Invalid number.")
         except ValueError:
@@ -73,7 +72,6 @@ class SmartClassReminder:
             with open(FILE_NAME, "r", encoding="utf-8") as f:
                 self.classes = json.load(f)
 
-    
     # Reminder loop to notify classes on time
     def reminder_loop(self):
         print("Reminder loop is running. Press Ctrl+C to stop.")
@@ -101,7 +99,6 @@ def main():
         print("6. Exit")
         choice = input("Enter your choice: ")
 
-        
         if choice == "1":
             reminder.add_class()
         elif choice == "2":
@@ -118,6 +115,5 @@ def main():
         else:
             print("Invalid choice! Please try again.")
 
-    
 if __name__ == "__main__":
     main()
