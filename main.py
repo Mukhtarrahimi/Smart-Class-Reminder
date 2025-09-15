@@ -37,12 +37,17 @@ class SmartClassReminderApp:
 
         self.show_classes()
 
-    # Add a new class/session
+     # Add a class
     def add_class(self):
-        title = input("Class Title: ")
-        day = input("Day (e.g., Monday): ")
-        hour = input("Start Time (24h format, e.g., 14:30): ")
-        link = input("Online Session Link: ")
+        title = simpledialog.askstring("Class Title", "Enter class title:")
+        if not title: return
+        day = simpledialog.askstring("Day", "Enter day (e.g., Monday):")
+        if not day: return
+        hour = simpledialog.askstring("Time", "Enter start time (HH:MM, 24h):")
+        if not hour: return
+        link = simpledialog.askstring("Link", "Enter online session link:")
+        if not link: return
+
         self.classes.append({
             "title": title,
             "day": day.capitalize(),
@@ -50,8 +55,8 @@ class SmartClassReminderApp:
             "link": link
         })
         self.save_classes()
-        print(f"Class '{title}' has been successfully added!")
-
+        self.show_classes()
+        messagebox.showinfo("Success", f"Class '{title}' added!")
     # Display all classes
     def show_classes(self):
         if not self.classes:
