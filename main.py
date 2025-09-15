@@ -75,22 +75,17 @@ class SmartClassReminderApp:
         for cls in found:
             print(f"{cls['title']} | Day: {cls['day']} | Time: {cls['hour']} | Link: {cls['link']}")
 
-    # Remove a class by index
+    # Remove selected class
     def remove_class(self):
-        self.show_classes()
-        if not self.classes:
+        selected = self.tree.selection()
+        if not selected:
+            messagebox.showwarning("Warning", "Please select a class to remove!")
             return
-        try:
-            index = int(input("Enter the number of the class to remove: "))
-            if 1 <= index <= len(self.classes):
-                removed = self.classes.pop(index-1)
-                self.save_classes()
-                print(f"Class '{removed['title']}' has been removed.")
-            else:
-                print("Invalid number.")
-        except ValueError:
-            print("Please enter a valid number.")
-
+        index = self.tree.index(selected[0])
+        removed_class = self.classes.pop(index)
+        self.save_classes()
+        self.show_classes()
+        messagebox.showinfo("Removed", f"Class '{removed_class['title']}' removed!")
     # Save classes to file
     def save_classes(self):
         with open(FILE_NAME, "w", encoding="utf-8") as f:
